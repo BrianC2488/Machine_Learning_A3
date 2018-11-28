@@ -45,13 +45,6 @@ def create_Test_and_Train(csv_file):
 # In[3]:
 
 
-#These are the labels on each of the columns in our dataset
-labels =  ["body-length", "wing-length", "body-width", "wing-width", "label"]
-
-
-# In[4]:
-
-
 #The label count method returns 
 #how many types of each owl there
 def label_count(rows):
@@ -71,7 +64,7 @@ def label_count(rows):
     return count
 
 
-# In[5]:
+# In[4]:
 
 
 class Question:
@@ -94,7 +87,7 @@ class Question:
             return True 
 
 
-# In[6]:
+# In[5]:
 
 
 #This function takes in the training data array and splits 
@@ -117,7 +110,7 @@ def partition(rows, question):
     return true_rows, false_rows
 
 
-# In[7]:
+# In[6]:
 
 
 def gini_index(rows):
@@ -134,7 +127,7 @@ def gini_index(rows):
     return impurity
 
 
-# In[8]:
+# In[7]:
 
 
 def info_gain(Child_left, Child_right, Parent):
@@ -151,7 +144,7 @@ def info_gain(Child_left, Child_right, Parent):
     return Parent - x * gini_index(Child_left) -  y * gini_index(Child_right)
 
 
-# In[9]:
+# In[8]:
 
 
 def find_best_split(rows):
@@ -195,7 +188,7 @@ def find_best_split(rows):
     return highest_gain, best_question
 
 
-# In[10]:
+# In[9]:
 
 
 class Decision_Made:
@@ -205,7 +198,7 @@ class Decision_Made:
         
 
 
-# In[11]:
+# In[10]:
 
 
 class Decision_Node:
@@ -217,7 +210,7 @@ class Decision_Node:
         self.false_node = false_node
 
 
-# In[12]:
+# In[11]:
 
 
 #the build tree function takes in the Training Array
@@ -243,7 +236,7 @@ def build_tree(rows):
     return Decision_Node(question, true_branch, false_branch)
 
 
-# In[13]:
+# In[12]:
 
 
 def classification(row, node):
@@ -261,7 +254,7 @@ def classification(row, node):
         return classification(row, node.false_node)
 
 
-# In[14]:
+# In[13]:
 
 
 def TF_Rate(array, model):
